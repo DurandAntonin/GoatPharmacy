@@ -18,7 +18,7 @@ CREATE TABLE "Medecin"(
 );
 
 CREATE TABLE "Consultation"(
-    "idConsulation" UUID NOT NULL,
+    "idConsultation" UUID NOT NULL,
     "dateConsultation" DATE NOT NULL,
     "diagnostic" TEXT NOT NULL,
     "idPatient" UUID NOT NULL,
@@ -76,7 +76,7 @@ ALTER TABLE
 ALTER TABLE
     "Medecin" ADD PRIMARY KEY("idMedecin");
 ALTER TABLE
-    "Consultation" ADD PRIMARY KEY("idConsulation");
+    "Consultation" ADD PRIMARY KEY("idConsultation");
 ALTER TABLE
     "Prescription" ADD PRIMARY KEY("idPrescription");
 ALTER TABLE
@@ -98,7 +98,7 @@ ALTER TABLE
 ALTER TABLE
     "LignePrescription" ADD CONSTRAINT "ligneprescription_idprescription_foreign" FOREIGN KEY("idPrescription") REFERENCES "Prescription"("idPrescription");
 ALTER TABLE
-    "Prescription" ADD CONSTRAINT "prescription_idconsultation_foreign" FOREIGN KEY("idConsultation") REFERENCES "Consultation"("idConsulation");
+    "Prescription" ADD CONSTRAINT "prescription_idconsultation_foreign" FOREIGN KEY("idConsultation") REFERENCES "Consultation"("idConsultation");
 ALTER TABLE
     "Stock" ADD CONSTRAINT "stock_idmedicament_foreign" FOREIGN KEY("idMedicament") REFERENCES "Medicament"("idMedicament");
 ALTER TABLE
