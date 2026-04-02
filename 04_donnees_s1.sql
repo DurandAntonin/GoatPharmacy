@@ -30,21 +30,21 @@ FROM "Patient" WHERE "ville" = 'Casablanca' LIMIT 8;
 
 
 -- Ligne Prescription 
-INSERT INTO "LignePrescription_S1" ("idPrescription", "idMedicament", "quantite", "posologie")
+INSERT INTO "LignePrescription" ("idPrescription", "idMedicament", "quantite", "posologie")
 SELECT "idPrescription", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 1.00, '1 comprimé 3 fois par jour'
-FROM "Prescription_S1";
+FROM "Prescription";
 
-INSERT INTO "LignePrescription_S1" ("idPrescription", "idMedicament", "quantite", "posologie")
+INSERT INTO "LignePrescription" ("idPrescription", "idMedicament", "quantite", "posologie")
 SELECT "idPrescription", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 2.00, '1 gélule matin et soir'
-FROM "Prescription_S1"
+FROM "Prescription"
 LIMIT 3; 
 
 -- Ligne Vente
-INSERT INTO "LigneVente_S1" ("idVente", "idMedicament", "quantite", "prixVente")
+INSERT INTO "LigneVente" ("idVente", "idMedicament", "quantite", "prixVente")
 SELECT "idVente", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 1, 15.50
-FROM "Vente_S1";
+FROM "Vente";
 
-INSERT INTO "LigneVente_S1" ("idVente", "idMedicament", "quantite", "prixVente")
+INSERT INTO "LigneVente" ("idVente", "idMedicament", "quantite", "prixVente")
 SELECT "idVente", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 1, 85.00
-FROM "Vente_S1"
+FROM "Vente"
 LIMIT 4;
