@@ -31,19 +31,19 @@ FROM "Patient" WHERE "ville" = 'Rabat' LIMIT 7;
 -- Ligne  Prescription 
 INSERT INTO "LignePrescription" ("idPrescription", "idMedicament", "quantite", "posologie")
 SELECT "idPrescription", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 1.00, '1 comprimé si douleur'
-FROM "Prescription_S2";
+FROM "Prescription";
 
 INSERT INTO "LignePrescription" ("idPrescription", "idMedicament", "quantite", "posologie")
 SELECT "idPrescription", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 1.00, '2 bouffées en cas de crise'
-FROM "Prescription_S2"
+FROM "Prescription"
 LIMIT 3;
 
 -- Lignes Vente 
 INSERT INTO "LigneVente" ("idVente", "idMedicament", "quantite", "prixVente")
 SELECT "idVente", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a17', 1, 42.00
-FROM "Vente_S2";
+FROM "Vente";
 
 INSERT INTO "LigneVente" ("idVente", "idMedicament", "quantite", "prixVente")
 SELECT "idVente", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a19', 1, 72.00
-FROM "Vente_S2"
+FROM "Vente"
 LIMIT 3;
