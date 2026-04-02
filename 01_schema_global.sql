@@ -1,5 +1,5 @@
 CREATE TABLE "Patient"(
-    "idPatient" UUID NOT NULL,
+    "idPatient" UUID PRIMARY KEY,
     "nomPatient" VARCHAR(50) NOT NULL,
     "prenomPatient" VARCHAR(50) NOT NULL,
     "dateNaissance" DATE NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE "Patient"(
 );
 
 CREATE TABLE "Medecin"(
-    "idMedecin" UUID NOT NULL,
+    "idMedecin" UUID PRIMARY KEY,
     "nomMedecin" VARCHAR(50) NOT NULL,
     "specialite" VARCHAR(20) NOT NULL,
     "ville" VARCHAR(50) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE "Medecin"(
 );
 
 CREATE TABLE "Consultation"(
-    "idConsultation" UUID NOT NULL,
+    "idConsultation" UUID PRIMARY KEY,
     "dateConsultation" DATE NOT NULL,
     "diagnostic" TEXT NOT NULL,
     "idPatient" UUID NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE "Consultation"(
 );
 
 CREATE TABLE "Prescription"(
-    "idPrescription" UUID NOT NULL,
+    "idPrescription" UUID PRIMARY KEY,
     "datePrescription" DATE NOT NULL,
     "idConsultation" UUID NOT NULL
 );
@@ -39,7 +39,7 @@ CREATE TABLE "LignePrescription"(
 );
 
 CREATE TABLE "Medicament"(
-    "idMedicament" UUID NOT NULL,
+    "idMedicament" UUID PRIMARY KEY,
     "nomMedicament" VARCHAR(20) NOT NULL,
     "forme" VARCHAR(20) NOT NULL,
     "dosage" VARCHAR(20) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE "Medicament"(
 );
 
 CREATE TABLE "Stock"(
-    "idStock" UUID NOT NULL,
+    "idStock" UUID PRIMARY KEY,
     "idMedicament" UUID NOT NULL,
     "ville" VARCHAR(50) NOT NULL,
     "quantiteDisponible" SMALLINT NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE "Stock"(
 );
 
 CREATE TABLE "Vente"(
-    "idVente" UUID NOT NULL,
+    "idVente" UUID PRIMARY KEY,
     "idPatient" UUID NOT NULL,
     "dateVente" DATE NOT NULL,
     "ville" VARCHAR(50) NOT NULL,
@@ -70,21 +70,6 @@ CREATE TABLE "LigneVente"(
     "quantite" SMALLINT NOT NULL,
     "prixVente" DECIMAL(8, 2) NOT NULL
 );
-
-ALTER TABLE
-    "Patient" ADD PRIMARY KEY("idPatient");
-ALTER TABLE
-    "Medecin" ADD PRIMARY KEY("idMedecin");
-ALTER TABLE
-    "Consultation" ADD PRIMARY KEY("idConsultation");
-ALTER TABLE
-    "Prescription" ADD PRIMARY KEY("idPrescription");
-ALTER TABLE
-    "Medicament" ADD PRIMARY KEY("idMedicament");
-ALTER TABLE
-    "Stock" ADD PRIMARY KEY("idStock");
-ALTER TABLE
-    "Vente" ADD PRIMARY KEY("idVente");
 
 ALTER TABLE
     "LigneVente" ADD PRIMARY KEY("idVente", "idMedicament");

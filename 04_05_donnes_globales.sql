@@ -17,3 +17,6 @@ SELECT gen_random_uuid(), "idMedicament", 'Casablanca', 100, 10 FROM "Medicament
 
 INSERT INTO "Stock" ("idStock", "idMedicament", "ville", "quantiteDisponible", "seuilAlerte")
 SELECT gen_random_uuid(), "idMedicament", 'Rabat', 80, 5 FROM "Medicament";
+
+INSERT INTO "Stock" ("idStock", "idMedicament", "ville", "quantiteDisponible", "seuilAlerte")
+SELECT gen_random_uuid(), "idMedicament", 'Rabat', 4, 5 FROM "Medicament" WHERE "idMedicament" = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20';

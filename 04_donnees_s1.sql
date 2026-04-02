@@ -25,7 +25,7 @@ FROM "Consultation" WHERE "idMedecin" IN ('c1eebc99-9c0b-4ef8-bb6d-6bb9bd380a01'
 
 -- 5. VENTES CASA (8 ventes)
 INSERT INTO "Vente" ("idVente", "idPatient", "dateVente", "ville", "montantTotal")
-SELECT gen_random_uuid(), "idPatient", CURRENT_DATE, 'Casablanca', 0.00 -- Montant à update via les lignes
+SELECT gen_random_uuid(), "idPatient", CURRENT_DATE, 'Casablanca', 0.00
 FROM "Patient" WHERE "ville" = 'Casablanca' LIMIT 8;
 
 
