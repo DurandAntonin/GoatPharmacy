@@ -27,3 +27,24 @@ FROM "Consultation" WHERE "idMedecin" IN ('c1eebc99-9c0b-4ef8-bb6d-6bb9bd380a01'
 INSERT INTO "Vente" ("idVente", "idPatient", "dateVente", "ville", "montantTotal")
 SELECT gen_random_uuid(), "idPatient", CURRENT_DATE, 'Casablanca', 0.00 -- Montant à update via les lignes
 FROM "Patient" WHERE "ville" = 'Casablanca' LIMIT 8;
+
+
+-- Ligne Prescription 
+INSERT INTO "LignePrescription_S1" ("idPrescription", "idMedicament", "quantite", "posologie")
+SELECT "idPrescription", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 1.00, '1 comprimé 3 fois par jour'
+FROM "Prescription_S1";
+
+INSERT INTO "LignePrescription_S1" ("idPrescription", "idMedicament", "quantite", "posologie")
+SELECT "idPrescription", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 2.00, '1 gélule matin et soir'
+FROM "Prescription_S1"
+LIMIT 3; 
+
+-- Ligne Vente
+INSERT INTO "LigneVente_S1" ("idVente", "idMedicament", "quantite", "prixVente")
+SELECT "idVente", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 1, 15.50
+FROM "Vente_S1";
+
+INSERT INTO "LigneVente_S1" ("idVente", "idMedicament", "quantite", "prixVente")
+SELECT "idVente", 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 1, 85.00
+FROM "Vente_S1"
+LIMIT 4;
