@@ -1,4 +1,4 @@
--- 1. MEDICAMENTS (10 produits)
+-- 1. Médicaments (10 produits)
 INSERT INTO "Medicament" ("idMedicament", "nomMedicament", "forme", "dosage", "prixUnitaire", "fabricant", "villeProduction") VALUES
 ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Doliprane', 'Comprimé', '1000mg', 15.50, 'Sanofi', 'Casablanca'),
 ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'Amoxil', 'Gélule', '500mg', 45.00, 'GSK', 'Casablanca'),
@@ -11,12 +11,13 @@ INSERT INTO "Medicament" ("idMedicament", "nomMedicament", "forme", "dosage", "p
 ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a19', 'Aerius', 'Comprimé', '5mg', 72.00, 'MSD', 'Rabat'),
 ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20', 'Difal', 'Comprimé', '50mg', 22.00, 'Laprophan', 'Casablanca');
 
--- 2. INITIALISATION DES STOCKS (2 par médicament : 1 Casa, 1 Rabat)
+-- 2. Stocks (2 par médicament : 1 Casa, 1 Rabat)
 INSERT INTO "Stock" ("idStock", "idMedicament", "ville", "quantiteDisponible", "seuilAlerte")
 SELECT gen_random_uuid(), "idMedicament", 'Casablanca', 100, 10 FROM "Medicament";
 
 INSERT INTO "Stock" ("idStock", "idMedicament", "ville", "quantiteDisponible", "seuilAlerte")
 SELECT gen_random_uuid(), "idMedicament", 'Rabat', 80, 5 FROM "Medicament";
 
+-- 2.1 Insertation d'un stock < au seuil pour un médicament
 INSERT INTO "Stock" ("idStock", "idMedicament", "ville", "quantiteDisponible", "seuilAlerte")
 SELECT gen_random_uuid(), "idMedicament", 'Rabat', 4, 5 FROM "Medicament" WHERE "idMedicament" = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20';
